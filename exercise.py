@@ -1,6 +1,12 @@
 import gym
 import registry
 
+field = [
+    "Start", "Frozen", "Frozen", "Frozen",
+    "Frozen", "Hole", "Frozen", "Hole",
+    "Frozen", "Frozen", "Frozen", "Hole",
+    "Hole", "Frozen", "Frozen", "Goal",
+]
 
 action_names = ["Left", "Down", "Right", "Up"]
 
