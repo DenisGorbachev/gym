@@ -6,18 +6,18 @@ action_names = ["Left", "Down", "Right", "Up"]
 
 # env = gym.make('FrozenLakeDeterministic-v0')
 # actions = [
-#     1, 2, 1, 0,
-#     1, 7, 1, 7,
-#     2, 1, 1, 7,
-#     7, 2, 2, 9,
+#     "Down", "Right", "Down", "Left",
+#     "Down", "None", "Down", "None",
+#     "Right", "Down", "Down", "None",
+#     "None", "Right", "Right", "None",
 # ]
 
 env = gym.make('FrozenLake-v0')
 actions = [
-    0, 3, 3, 3,
-    0, 7, 0, 7,
-    3, 1, 0, 7,
-    7, 2, 1, 9,
+    "Left", "Up", "Up", "Up",
+    "Left", "None", "Left", "None",
+    "Up", "Down", "Left", "None",
+    "None", "Right", "Down", "None",
 ]
 
 total_reward = 0
@@ -30,8 +30,9 @@ for episode in range(max_episodes):
     steps = 0
     while not done:
         # env.render()
-        action = actions[observation]  # actions.pop()
-        # print("-> {}".format(action_names[action]))
+        action_name = actions[observation]  # actions.pop()
+        action = action_names.index(action_name)
+        # print("-> {}".format(action_name))
         observation, reward, done, info = env.step(action)
         steps += 1
     # env.render()
